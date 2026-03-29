@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ZEVA — AI Assistant</title>
+  <link rel="manifest" href="manifest.json"/>
+  <link rel="stylesheet" href="src/ui/styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <div id="app">
+    <div class="bg-grid"></div>
+    <div class="bg-glow"></div>
+    <header class="header">
+      <div class="logo">Z<span>EVA</span></div>
+      <div class="status-dot" id="statusDot"></div>
+    </header>
+    <main class="orb-container">
+      <div class="orb-ring ring-3"></div>
+      <div class="orb-ring ring-2"></div>
+      <div class="orb-ring ring-1"></div>
+      <div class="orb" id="orb">
+        <div class="orb-inner"><div class="orb-core"></div></div>
+      </div>
+      <p class="orb-label" id="orbLabel">Say <strong>"Hey ZEVA"</strong> to begin</p>
+    </main>
+    <div class="transcript-box"><p id="transcript">—</p></div>
+    <div class="response-box"><p id="response">Waiting for your command...</p></div>
+    <div class="controls">
+      <button class="mic-btn" id="micBtn" onclick="toggleListen()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+          <line x1="12" y1="19" x2="12" y2="23"/>
+          <line x1="8" y1="23" x2="16" y2="23"/>
+        </svg>
+      </button>
+      <span class="mic-label" id="micLabel">Tap to speak</span>
+    </div>
+  </div>
+  <script src="src/voice/wakeword.js"></script>
+  <script src="src/voice/speech.js"></script>
+  <script src="src/api/claude.js"></script>
+</body>
+</html>
